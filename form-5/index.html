@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple form</title>
+    <style>
+        form{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px ;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0;
+
+        }
+        label{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-evenly;
+            font-size: 18px;
+        }
+        input{
+            padding: 5px 10px;
+        }
+        button{
+            width: 10%;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        table , tr ,th ,td{
+            border: 1px solid black;
+            
+        }
+        table {
+            width: 70%;
+            text-align: center;
+            margin: auto;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <label>Name <input type="text" autofocus placeholder="your name" pattern="^[a-z]{3,10}$" required > </label>
+        <label>Age <input type="text"  placeholder="25" pattern="^(?:1[1-9]|[2-5][0-9])$" required></label>
+        <label>Email <input type="text"  placeholder="enter email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required></label>
+        <button type="submit">add</button>
+        <button type="reset">reset</button>
+
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        // nameRegex =/^[a-z]$/;
+        // ageRegex =/^(?:1[1-9]|[2-5][0-9])$/
+        // emailRegex=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+        var userName =document.getElementsByTagName("input")[0];
+        var userAge=document.getElementsByTagName("input")[1];
+        var userEmail=document.getElementsByTagName("input")[2];
+        var table=document.getElementsByTagName("table")[0];
+        var form=document.getElementsByTagName("form")[0];
+        var parent = document.querySelector("tbody");
+        
+        form.addEventListener("submit",function(){
+            // console.log("hiii")
+            event.preventDefault();
+            table.style.display="table"
+            parent.innerHTML +="<tr><td>"+userName.value+"</td><td>"+userAge.value+"</td><td>"+userEmail.value+"</td></tr>";
+        });
+        var reset=document.getElementsByTagName("button")[1];
+        reset.addEventListener("click",function(){
+            userName.value.remove
+            userAge.value.remove
+            userEmail.value.remove
+            
+        })
+        
+        
+    </script>
+    
+</body>
+</html>

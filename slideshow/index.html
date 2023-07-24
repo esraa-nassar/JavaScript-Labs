@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        #sec { 
+            
+            
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 0;
+            
+        }
+        
+        button  {
+            color: rgba(0, 0, 0, 0.3);
+            font-size: 36px;
+            outline-style: none;
+            border-style: none;
+            background-color: transparent;
+        }
+        button:hover {
+            color: rgba(0, 0, 0, 0.8);
+        }
+       
+
+        #imag{
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #imag img{
+            width: 100%;
+        }
+        #sec #imag button {
+            margin: 0 10px;
+        }
+
+        #sec nav {
+            width: 100%;
+            text-align: center;
+        }
+        #sec nav button {
+            margin: 20px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <section id="sec">
+        
+        <div id="imag">
+            <button onclick="backward()"><i class="fa-sharp fa-solid fa-backward"></i></i></button>
+
+            <img src="images/img-1.jpg" alt="" id="imgs">
+            <button onclick="forward()"><i class="fa-sharp fa-solid fa-forward"></i></button>
+
+        </div>
+        <nav>
+            
+            <button onclick="slidShow()"><i class="fa-solid fa-sliders"></i></button>
+            <button id="stopSlideShow" onclick="stop()"><i class="fa-sharp fa-solid fa-circle-stop"></i></button>
+            
+
+        </nav>
+
+    </section>
+
+    <script>
+        var imgs = document.getElementById("imgs");
+        var btn = document.getElementById("stopSlideShow");
+        var imgArray = ['images/img-1.jpg','images/img-2.jpg','images/img-3.jpg','images/img-4.jpg','images/img-5.png','images/img-6.jpg'];
+        var i = 0;
+        function backward(){
+            if( i > 0){
+                i--
+                imgs.src =imgArray[i];
+            
+            }
+            
+
+            };
+            
+        function forward(){
+            
+            if(i<imgArray.length-1){
+                i++;
+                imgs.src = imgArray[i];
+            }
+        } 
+        
+        
+        function slidShow(){
+            imgs.src =imgArray[i];
+            i++;
+            if(i==imgArray.length){
+                i=0;
+            }
+            imgTime = setTimeout("slidShow()",2000);   // var imgDuration = 2000;
+
+
+        }
+
+        function stop(){
+            clearTimeout(imgTime);
+        }
+
+
+        
+
+
+    </script>
+    
+    
+</body>
+</html>

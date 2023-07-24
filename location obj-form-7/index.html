@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration form </title>
+    <style>
+        form{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+
+        }
+        /* label{
+            width: 75%;
+            display: flex;
+            justify-content: space-evenly;
+            font-weight: 700;
+            font-size: 16px;
+        } */
+        input{
+            padding: 5px 20px;
+        }
+        button{
+            width: 30%;
+            padding: 5px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="welcome.html" method="get">
+        <label>Name <input type="text" name="userName" autofocus placeholder="your name" pattern="^[a-z]{3,10}$" required > </label>
+        <label>Email <input type="text" name="userEmail" placeholder="enter email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required></label>
+        <label>Mobile <input type="text"  placeholder="01111" name="userMOb" pattern="^[\+]?[(]?[0-2]{3}[)]?[- ]?(\d{4})[- ]?(\d{4})$" required></label>
+            <input type="radio" id="male" name="gender" ><label for="male">Male</label>
+            <input type="radio" id="female" name="gender"><label for="female">female</label>
+        <label>Adress <input type="text" placeholder="#1, North Street, Chennai - 11 " pattern="^[#.0-9a-zA-Z\s,-]+$" required > </label>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        var form=document.getElementsByTagName("form")[0];
+        var timeOut = setTimeout(function(){
+                alert("time out")
+                form.style.display="none"
+            },3000);
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body>
+
+    <!--               way-1             -->
+    <input type="text" onkeypress="validNumber()">
+    <pre> 
+    green is valid
+    red is notvalid  
+    </pre>
+    <script>
+        var input=document.getElementsByTagName("input")[0];
+
+        function validNumber(){
+            if(!isFinite(input.value)){
+                input.style.backgroundColor="red"
+                event.preventDefault();
+            
+            }else{
+                input.style.backgroundColor="green"
+                console.log(input.value);
+            }
+        }
+    </script>
+
+    <!--               way-2             -->
+
+    <!-- <form>
+        Number:<input type="text" oninput="validateNumber()" required>
+        <span></span>
+    </form>
+    <script>
+        var input =  document.getElementsByTagName("input")[0];
+        var span =document.getElementsByTagName("span")[0]
+        function validateNumber(){
+            
+            if(isFinite(input.value)){
+                span.innerHTML="value is valid";
+                
+            }else{
+                span.innerHTML="value is invalid";
+                
+            }
+         }
+    </script> -->
+    
+</body>
+</html>

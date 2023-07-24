@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome</title>
+</head>
+<body>
+    <h2></h2>
+    <p></p>
+    
+    
+    <script>
+        var h2 = document.getElementsByTagName("h2")[0];
+        var p = document.getElementsByTagName("p")[1];
+       var userName= location.search.split("&")[0].split("=")[1];
+       var userEmail=location.search.split("&")[1].split("=")[1]
+       var userMOb=location.search.split("&")[2].split("=")[1]
+       h2.innerHTML=userName+" thanks for your registration"
+       document.write("<p>your mobile is "+userEmail+" <br><br> your mobile is "+userMOb+"</p>")
+    </script>
+    
+</body>
+</html>

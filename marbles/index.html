@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>marbles</title>
+    <style>
+        div {
+            margin: auto;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            border: 1px solid;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- <img src="marble2.jpg" alt=""> -->
+        <img src="marble1.jpg" alt="">
+        <img src="marble1.jpg" alt="">
+        <img src="marble1.jpg" alt="">
+        <img src="marble1.jpg" alt="">
+        <img src="marble1.jpg" alt="">
+    </div>
+   
+
+    <script>
+
+        var imgs =document.getElementsByTagName("img");
+        var movimgImg = 0;
+        var div = document.getElementsByTagName("div")[0];
+        function animation(){
+            imgs[movimgImg].setAttribute('src','marble1.jpg');
+            if(movimgImg<4){
+                imgs[movimgImg+1].setAttribute('src','marble2.jpg');
+            }
+            movimgImg++  
+            
+            if(movimgImg>4){
+                movimgImg=0;
+                imgs[movimgImg].setAttribute('src','marble2.jpg'); 
+            }
+        }
+        var moveRight= setInterval(animation,1000)
+        window.addEventListener("load", animation);
+        div.addEventListener("mouseover",function(){
+            // console.log("stop")
+            clearInterval(moveRight);
+        });
+        div.addEventListener("mouseout",function(){
+            // console.log("start")
+            moveRight= setInterval(animation,1000)
+        });
+
+    </script>
+
+</body>
+
+</html>
